@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Practico1Vane.Data;
+using Practico1Vane.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 

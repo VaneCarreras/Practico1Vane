@@ -115,7 +115,7 @@ namespace Practico1Vane.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Proyectos");
                 }
                 if (result.RequiresTwoFactor)
                 {

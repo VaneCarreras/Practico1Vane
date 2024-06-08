@@ -24,12 +24,43 @@
       </div>
       <div class="modal-body">
         <form>
-          <div class="mb-3">
-            <input type="hidden" id="ProyectoID" value="0"/>
-            <label for="nombre" class="form-label">Nombre</label>
-            <input type="text" class="form-control" id="nombre"  placeholder="Nombre del proyecto">
-            <label for="descripcion" class="form-label">Descripcion</label>
-            <input type="text" class="form-control" id="descripcion"  placeholder="Descripcion del proyecto">
+          <div class="mb-3"><input type="hidden" id="ProyectoID" value="0" />
+            <div class="mb-3 col-12">
+              <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="nombre" style="text-transform:uppercase" placeholder="Nombre del proyecto">
+
+            </div>
+
+            <div class="mb-3 col-12">
+              <label for="descripcion" class="form-label">Descripcion</label>
+            <input type="text" class="form-control" id="descripcion" style="text-transform:uppercase" placeholder="Descripcion">
+
+            </div>
+
+            <div class="mb-3 col-6">
+              <label for="fechaInicio" class="form-label">Inicio</label>
+              <input type="datetime-local" id="fechaInicio" class="form-control"
+                value="@DateTime.Now.ToString("yyyy-MM-dd")" />
+            </div>
+
+            <div class="mb-3 col-6">
+              <label for="fechaFin" class="form-label">Fin</label>
+              <input type="datetime-local" id="fechaFin" class="form-control"
+                value="@DateTime.Now.ToString("yyyy-MM-dd")" />
+            </div>
+
+            <div class="mb-3 col-12">
+              <label for="importePresupuesto" class="form-label">Importe del Presupuesto</label>
+            <input type="text" class="form-control" id="importePresupuesto" style="text-transform:uppercase" placeholder="Importe">
+
+            </div>
+
+            <div class="mb-3 col-6">
+              <label for="Estado" class="form-label">Estado</label>
+              @Html.DropDownList("Estado", null, htmlAttributes: new { @class = "form-control" })
+            </div>
+
+            
           </div>
         </form>
       </div>
@@ -46,6 +77,11 @@
     <tr>
       <th>Nombre</th>
       <th>Descripcion</th>
+      <th>Fecha Inicio</th>
+      <th>Fecha Fin</th>
+      <th>Importe del Presupuesto</th>
+      <th>Estado</th>
+
       <th style="width: 70px"></th>
       <th style="width: 70px"></th>
     </tr>

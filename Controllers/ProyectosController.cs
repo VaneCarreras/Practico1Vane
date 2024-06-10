@@ -37,14 +37,19 @@ public class ProyectosController : Controller
         }));
 
         // Pasar la lista de opciones al modelo de la vista
-        ViewBag.Estado = selectListItems.OrderBy(t => t.Text).ToList();
+        ViewBag.Estado = selectListItems.OrderBy(p => p.Text).ToList();
 
         return View();
     }
 
     public JsonResult ListadoProyectos(int? id)
     {
+
         var proyectos = _context.Proyectos.ToList();
+        if (id != null)
+        {
+            proyectos = proyectos.Where(p => p.ProyectoID == id).ToList();
+        }
 
         var proyectosMostrar = proyectos
         .Select(p => new VistaProyecto
@@ -53,9 +58,9 @@ public class ProyectosController : Controller
             Nombre = p.Nombre,
             Descripcion = p.Descripcion,
             FechaInicio = p.FechaInicio,
-            InicioString = p.FechaInicio.ToString("dd/MM/yyyy"),
+            InicioString = p.FechaInicio.ToString("dd/MM/yyyy HH:mm"),
             FechaFin = p.FechaFin,
-            FinString = p.FechaFin.ToString("dd/MM/yyyy"),
+            FinString = p.FechaFin.ToString("dd/MM/yyyy HH:mm"),
             ImportePresupuesto = p.ImportePresupuesto,
             Estado = p.Estado,
             EstadoString = p.Estado.ToString()
@@ -93,7 +98,6 @@ public class ProyectosController : Controller
                 var proyectoEditar = _context.Proyectos.Where(p => p.ProyectoID == proyectoID).SingleOrDefault();
                 if (proyectoEditar != null)
                 {
-                    proyectoEditar.ProyectoID = proyectoID;
                     proyectoEditar.Nombre = nombre; 
                     proyectoEditar.Descripcion = descripcion;
                     proyectoEditar.FechaInicio = fechaInicio;

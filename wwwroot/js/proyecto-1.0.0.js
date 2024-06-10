@@ -58,11 +58,11 @@ function ListadoProyectos(){
 
 function LimpiarModal(){
     document.getElementById("ProyectoID").value = 0;
-    document.getElementById("nombre").value = "";
-    document.getElementById("descripcion").value = "";
-    document.getElementById("fechaInicio").value = "";
-    document.getElementById("fechaFin").value = "";
-    document.getElementById("importePresupuesto").value = "";
+    document.getElementById("Nombre").value = "";
+    document.getElementById("Descripcion").value = "";
+    document.getElementById("FechaInicio").value = "";
+    document.getElementById("FechaFin").value = "";
+    document.getElementById("ImportePresupuesto").value = "";
     document.getElementById("Estado").value = 0;
 }
 
@@ -81,13 +81,13 @@ function AbrirModalEditar(proyectoID){
             let proyecto = proyectosMostrar[0];
 
             document.getElementById("ProyectoID").value = proyectoID;
-            document.getElementById("nombre").value = proyecto.nombre;
-            document.getElementById("descripcion").value = proyecto.descripcion;
-            document.getElementById("fechaInicio").value = proyecto.fechaInicio;
-            document.getElementById("fechaFin").value = proyecto.fechaFin;
-            document.getElementById("importePresupuesto").value = proyecto.importePresupuesto;
-            document.getElementById("Estado").value = proyecto.estado;
             $("#ModalTitulo").text("Editar Proyecto");
+            document.getElementById("Nombre").value = proyecto.nombre;
+            document.getElementById("Descripcion").value = proyecto.descripcion;
+            document.getElementById("FechaInicio").value = proyecto.fechaInicio;
+            document.getElementById("FechaFin").value = proyecto.fechaFin;
+            document.getElementById("ImportePresupuesto").value = proyecto.importePresupuesto;
+            document.getElementById("Estado").value = proyecto.estado;
             $("#ModalProyecto").modal("show");
         },
 
@@ -99,11 +99,11 @@ function AbrirModalEditar(proyectoID){
 
 function GuardarRegistro(){
     let proyectoID = document.getElementById("ProyectoID").value;
-    let nombre = document.getElementById("nombre").value;
-    let descripcion = document.getElementById("descripcion").value;
-    let fechaInicio = document.getElementById("fechaInicio").value;
-    let fechaFin = document.getElementById("fechaFin").value;
-    let importePresupuesto = document.getElementById("importePresupuesto").value;
+    let nombre = document.getElementById("Nombre").value;
+    let descripcion = document.getElementById("Descripcion").value;
+    let fechaInicio = document.getElementById("FechaInicio").value;
+    let fechaFin = document.getElementById("FechaFin").value;
+    let importePresupuesto = document.getElementById("ImportePresupuesto").value;
     let estado = document.getElementById("Estado").value;
 
     console.log(nombre);

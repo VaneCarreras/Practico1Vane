@@ -65,7 +65,7 @@ public class ProyectosController : Controller
             Estado = p.Estado,
             EstadoString = p.Estado.ToString()
         })
-        .ToList();
+        .OrderByDescending(p => p.FechaInicio).ToList();
 
 
         return Json(proyectosMostrar);

@@ -13,11 +13,8 @@ function ListadoProyectos(){
             $("#ModalProyecto").modal("hide");
             LimpiarModal();
 
-            proyectosMostrar.sort(function(a, b) {
-                var fechaA = new Date(a.inicioString);
-                var fechaB = new Date(b.inicioString);
-                return fechaA - fechaB; // Ordenar de manera ASCENDENTE
-            });
+           
+            
 
             let contenidoTabla = ``;
 

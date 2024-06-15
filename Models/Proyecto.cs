@@ -12,9 +12,9 @@ namespace Practico1Vane.Models
         public int ProyectoID { get; set; }
         public string? Nombre { get; set; }
         public string? Descripcion { get; set; }
-        public DateTime FechaInicio { get; set; }
-        public DateTime FechaFin { get; set; }
-        public string? ImportePresupuesto { get; set; }   
+        public DateOnly FechaInicio { get; set; }
+        public DateOnly FechaFin { get; set; }
+        public decimal ImportePresupuesto { get; set; }   
         public Estado Estado {get; set; }
     }
 
@@ -23,11 +23,11 @@ namespace Practico1Vane.Models
         public int ProyectoID { get; set; }
         public string? Nombre {get;set;}
         public string? Descripcion {get;set;}
-        public DateTime FechaInicio { get; set; }
+        public DateOnly FechaInicio { get; set; }
         public string? InicioString { get; set; }
-        public DateTime FechaFin { get; set; }
+        public DateOnly FechaFin { get; set; }
         public string? FinString { get; set; }
-        public string? ImportePresupuesto {get; set; }
+        public decimal ImportePresupuesto {get; set; }
         public Estado Estado {get; set; } 
         public string? EstadoString {get; set; } 
     }

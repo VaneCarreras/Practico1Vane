@@ -1,0 +1,95 @@
+@{
+  ViewData["Title"] = "Empleados";
+}
+
+<div class="text-center">
+  <h1 class="display-4">Empleados</h1>
+</div>
+
+<!-- Button trigger modal -->
+<div class="mb-2">
+  <button type="button" class="btn btn-success" onclick="NuevoRegistro()" data-bs-toggle="modal"
+    data-bs-target="#ModalEmpleado">
+    <i class="fa-solid fa-square-plus"></i> Nuevo
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="ModalEmpleado" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ModalTitulo"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <input type="hidden" id="EmpleadoID" value="0"/>
+          </div>
+          <div class="mb-3 col-12">
+            <label for="Nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="Nombre" style="text-transform:uppercase"
+              placeholder="Nombre y apellido del empleado">
+          </div>
+
+          <div class="mb-3 col-6">
+            <label for="FechaNac" class="form-label">Fecha Nacimiento</label>
+            <input type="date" id="FechaNac" class="form-control"
+              value="@DateTime.Now.ToString("yyyy-MM-dd")" />
+          </div>
+
+          <div class="mb-3 col-12">
+            <label for="Domicilio" class="form-label">Domicilio</label>
+            <input type="text" class="form-control" id="Domicilio" style="text-transform:uppercase"
+              placeholder="Domicilio del empleado">
+          </div>
+          <div class="mb-3 col-12">
+            <label for="Email" class="form-label">Email</label>
+            <input type="text" class="form-control" id="Email" style="text-transform:uppercase"
+              placeholder="Email del empleado">
+          </div>
+          <div class="mb-3 col-12">
+            <label for="Telefono" class="form-label">Telefono</label>
+            <input type="text" class="form-control" id="Telefono" style="text-transform:uppercase"
+              placeholder="Telefono del empleado">
+          </div>
+          <div class="mb-3 col-12">
+            <label for="Salario" class="form-label">Salario</label>
+            <input type="number" class="form-control" id="Salario"
+              placeholder="Salario del empleado">
+          </div>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" onclick="LimpiarModal()" class="btn btn-secondary"
+          data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" onclick="GuardarRegistro()" class="btn btn-success">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<table class="table table-sm table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Fecha Nacimiento</th>
+      <th>Domicilio</th>
+      <th>Email</th>
+      <th>Telefono</th>
+      <th>Salario</th>
+
+      <th style="width: 70px"></th>
+      <th style="width: 70px"></th>
+    </tr>
+  </thead>
+  <tbody id="tbody-empleados">
+  </tbody>
+</table>
+
+@section Scripts {
+  <script src="~/js/empleado-1.0.0.js"></script>
+}

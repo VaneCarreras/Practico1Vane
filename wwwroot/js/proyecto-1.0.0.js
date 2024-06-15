@@ -59,7 +59,7 @@ function LimpiarModal(){
     document.getElementById("Descripcion").value = "";
     document.getElementById("FechaInicio").value = "";
     document.getElementById("FechaFin").value = "";
-    document.getElementById("ImportePresupuesto").value = "";
+    document.getElementById("ImportePresupuesto").value = 0;
     document.getElementById("Estado").value = 0;
 }
 

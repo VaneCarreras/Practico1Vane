@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Practico1Vane.Data;
 
@@ -11,9 +12,11 @@ using Practico1Vane.Data;
 namespace Practico1Vane.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240613213653_Tabla Empleado")]
+    partial class TablaEmpleado
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -224,37 +227,6 @@ namespace Practico1Vane.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("Practico1Vane.Models.Empleado", b =>
-                {
-                    b.Property<int>("EmpleadoID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("EmpleadoID"));
-
-                    b.Property<string>("Domicilio")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateOnly>("FechaNac")
-                        .HasColumnType("date");
-
-                    b.Property<string>("Nombre")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal>("Salario")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("Telefono")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("EmpleadoID");
-
-                    b.ToTable("Empleados");
-                });
-
             modelBuilder.Entity("Practico1Vane.Models.Proyecto", b =>
                 {
                     b.Property<int>("ProyectoID")
@@ -269,14 +241,14 @@ namespace Practico1Vane.Migrations
                     b.Property<int>("Estado")
                         .HasColumnType("int");
 
-                    b.Property<DateOnly>("FechaFin")
-                        .HasColumnType("date");
+                    b.Property<DateTime>("FechaFin")
+                        .HasColumnType("datetime2");
 
-                    b.Property<DateOnly>("FechaInicio")
-                        .HasColumnType("date");
+                    b.Property<DateTime>("FechaInicio")
+                        .HasColumnType("datetime2");
 
-                    b.Property<decimal>("ImportePresupuesto")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<string>("ImportePresupuesto")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Nombre")
                         .HasColumnType("nvarchar(max)");

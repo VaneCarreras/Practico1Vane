@@ -10,5 +10,7 @@ public class ApplicationDbContext : IdentityDbContext
     {
     }
     public DbSet<Proyecto> Proyectos { get; set; }
+    public DbSet<Empleado> Empleados { get; set; }
+
 
 }

@@ -58,9 +58,9 @@ public class ProyectosController : Controller
             Nombre = p.Nombre,
             Descripcion = p.Descripcion,
             FechaInicio = p.FechaInicio,
-            InicioString = p.FechaInicio.ToString("dd/MM/yyyy HH:mm"),
+            InicioString = p.FechaInicio.ToString("dd/MM/yyyy"),
             FechaFin = p.FechaFin,
-            FinString = p.FechaFin.ToString("dd/MM/yyyy HH:mm"),
+            FinString = p.FechaFin.ToString("dd/MM/yyyy"),
             ImportePresupuesto = p.ImportePresupuesto,
             Estado = p.Estado,
             EstadoString = p.Estado.ToString()
@@ -71,7 +71,7 @@ public class ProyectosController : Controller
         return Json(proyectosMostrar);
     }
 
-    public JsonResult GuardarProyecto(int proyectoID, string nombre, string descripcion, DateTime fechaInicio, DateTime fechaFin, string importePresupuesto, Estado estado)
+    public JsonResult GuardarProyecto(int proyectoID, string nombre, string descripcion, DateOnly fechaInicio, DateOnly fechaFin, decimal importePresupuesto, Estado estado)
     {
         int error = 0;
 
